@@ -29,5 +29,57 @@
 
   <p>La programación orientada a objetos es ampliamente utilizada en el desarrollo de software, ya que permite crear sistemas complejos de una manera más estructurada y escalable. Algunos de los lenguajes de programación más populares que implementan el paradigma de la OOP son Java, C++, Python, C#, Ruby y Swift.</p>
   
+  <h2>Encapsulamiento</h2>
+  
+  <p>La encapsulación es el proceso de ocultar métodos y datos dentro del objeto con el que se relacionan. Los lenguajes de programación logran esto con lo que se llaman modificadores de acceso como:</p>
+  
+  <ul>
+    <li>Público</li>
+    <li>Protegido</li>
+    <li>Privado</li>
+  </ul>
+  
+  <p>En general, se puede acceder a los miembros públicos desde cualquier lugar, solo se puede acceder a los miembros protegidos desde el código dentro del mismo módulo y solo se puede acceder a los miembros privados desde el código dentro de la clase en la que están definidos estos miembros.</p>
+
+  <p>Python no tiene ningún mecanismo incorporado para impedir el acceso de ningún miembro (es decir, todos los miembros son públicos en Python). Sin embargo, existe una convención común entre los desarrolladores de utilizar un guión bajo único <code>self._x</code> para indicar que un miembro está protegido. Acceder a un miembro protegido fuera del módulo no provocará un error; los desarrolladores lo agregan para informar a otros desarrolladores que deben tener cuidado al acceder a este miembro de esa manera.</p>
+
+  <p>De manera similar, podemos declarar un miembro como privado con dos guiones bajos iniciales <code>self.__x</code>. Esto es más que una simple convención en Python debido a un mecanismo llamado alteración de nombres. Los nombres de los miembros precedidos por dos guiones bajos se modifican en segundo plano a <code>obj._Classname__x</code>. Si bien todavía se puede acceder a ellos públicamente, el propósito de este mecanismo es evitar que entren en conflicto los nombres de miembros de cualquier clase heredada que pueda definir a un miembro con el mismo nombre.</p>
+
+  <p>Tenga en cuenta que esto es diferente de los métodos Dunder que analizamos anteriormente. Un método dunder tiene dos guiones bajos iniciales y dos finales y se trata de manera diferente que un miembro privado. Una diferencia importante es que los nombres de los métodos dunder no están alterados.</p>
+
+  <h1>Catálogo Escolar</h1>
+
+  <p>Pongamos a prueba sus conocimientos sobre las clases creando un catálogo escolar digital para el Departamento de Educación de la ciudad de Pachuca. El Departamento de Educación quiere que el catálogo contenga material de referencia rápida para cada escuela de la ciudad.</p>
+
+  <p>Necesitamos crear clases para las escuelas primarias, secundarias y de media superior. Debido a que estas clases comparten propiedades y métodos, cada una heredará de una clase padre <em>Escuela</em>. Nuestra clase padre y sus tres clases hijas tienen las siguientes <em>propiedades, getters, setters y métodos</em>:</p>
+
+  <h2>Clase <b>Escuela</b></h2>
+  <ul>
+    <li>Propiedades: <code>nombre</code> (cadena), <code>nivel</code> (una de tres cadenas: <em>'Primaria', 'Secundaria' o 'Media superior'</em>) y <code>numeroDeEstudiantes</code> (entero).</li>
+    <li>Getters: todas las propiedades tienen getters.</li>
+    <li>Setters: la propiedad <code>numeroDeEstudiantes</code> tiene un setter.</li>
+    <li>Métodos: un método <code>__repr__</code> que muestra información sobre la escuela. Por ejemplo: <code>La escuela {nombre} con {numeroDeEstudiantes} estudiantes es de nivel {nivel}</code>.</li>
+  </ul>
+
+  <h2>Ejercicio: Clase Primaria</h2>
+
+  <p>Incluye todo lo que hay en la clase <b>Escuela</b>, más una propiedad adicional.</p>
+  <ul>
+    <li>Propiedades: <code>pickupPolicy</code> (cadena, como por ejemplo "Recoger después de las 3 p. m.")
+    </li>
+    <li>Métodos: un método <code>__repr__</code> que muestra información sobre la variable <code>pickupPolicy</code>. Anule el método <code>__repr__()</code> para que cuando se imprima una escuela primaria, se muestre información sobre la política de recogida además de otra información sobre la escuela.</li>
+  </ul>
+
+  <h2>Clase Secundaria</h2>
+
+  <p>No incluye propiedades ni métodos adicionales.</p>
+
+  <h2>Clase MediaSuperior</h2>
+  Incluye todo lo que hay en la clase <b>Escuela</b>, más una propiedad adicional.
+  <ul>
+    <li>Propiedades: <code>sportsTeams</code> (lista de cadenas, como <code>['baloncesto', 'tenis']</code>).
+    </li>
+    <li>Métodos: un método <code>__repr__</code> que muestra información sobre la variable <code>sportsTeams</code>. Anule el método <code>__repr__()</code> para que cuando se imprima una escuela de media superior, se muestre información sobre los equipos de deportes.</li>
+  </ul>
 </body>
 </html>
