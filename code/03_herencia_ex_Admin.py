@@ -29,3 +29,6 @@ e3.say_id()
 
 e4 = Manager()
 e4.say_id()
+
+print(Admin.__bases__)
+print(NameError.__bases__)
